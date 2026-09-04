@@ -27,9 +27,47 @@ These models are defined in `backend/app/models/domain.py` and validated against
 
 ### Risk Engine
 
-Evaluates direct hazard exposure for geographic zones. Takes hazard data and infrastructure maps as input; outputs direct risk scores per zone.
+Evaluates direct hazard exposure for geographic zones. Takes hazard intensity, exposure, and vulnerability as input; outputs direct risk scores with classification and explanation.
 
-**Status:** Planned — Phase 2.
+**Status:** **Complete — Phase 2**
+
+#### Formula
+
+```
+risk_score = 0.50 × hazard_intensity + 0.30 × exposure + 0.20 × vulnerability
+```
+
+All inputs normalized to [0, 1].
+
+#### Classification Thresholds
+
+| Level | Range |
+|-------|-------|
+| LOW | 0.00 – 0.29 |
+| MEDIUM | 0.30 – 0.59 |
+| HIGH | 0.60 – 1.00 |
+
+#### Exposure Model (Prototype)
+
+Phase 2 uses a deterministic synthetic rule for exposure:
+- If community is listed in the primary hazard's `affected_communities` → exposure = 1.0
+- Otherwise → exposure = 0.0
+
+This is a prototype rule for the SIH demo, **not** a realistic geospatial exposure model. Real exposure modeling requires flood extent mapping, elevation data, and hydraulic modeling — planned for later phases.
+
+#### API Endpoints
+
+- `POST /risk/calculate` — Calculate risk from explicit inputs
+- `GET /risk/ranked` — Communities ranked by risk from primary demo hazard (H001)
+
+#### Output Structure
+
+Every calculation returns:
+- `risk_score` — weighted score in [0, 1]
+- `risk_level` — LOW/MEDIUM/HIGH
+- `components` — the three input values
+- `weights` — the three weights used
+- `explanation` — natural-language summary referencing actual input values
 
 ### Cascade Engine
 
