@@ -1,0 +1,389 @@
+{
+  "district": {
+    "id": "D001",
+    "name": "Shivapur",
+    "description": "Synthetic district used for the SHARMI SIH prototype. All data is synthetic and for demonstration purposes only."
+  },
+  "communities": [
+    {
+      "id": "V001",
+      "name": "Village A",
+      "population": 1200,
+      "vulnerability": 0.65,
+      "latitude": 20.123,
+      "longitude": 73.456
+    },
+    {
+      "id": "V002",
+      "name": "Village B",
+      "population": 850,
+      "vulnerability": 0.72,
+      "latitude": 20.135,
+      "longitude": 73.478
+    },
+    {
+      "id": "V003",
+      "name": "Village C",
+      "population": 2100,
+      "vulnerability": 0.48,
+      "latitude": 20.158,
+      "longitude": 73.432
+    },
+    {
+      "id": "V004",
+      "name": "Village D",
+      "population": 600,
+      "vulnerability": 0.81,
+      "latitude": 20.112,
+      "longitude": 73.491
+    },
+    {
+      "id": "V005",
+      "name": "Village E",
+      "population": 1450,
+      "vulnerability": 0.55,
+      "latitude": 20.167,
+      "longitude": 73.421
+    },
+    {
+      "id": "V006",
+      "name": "Village F",
+      "population": 980,
+      "vulnerability": 0.68,
+      "latitude": 20.142,
+      "longitude": 73.465
+    },
+    {
+      "id": "V007",
+      "name": "Village G",
+      "population": 1750,
+      "vulnerability": 0.42,
+      "latitude": 20.178,
+      "longitude": 73.405
+    },
+    {
+      "id": "V008",
+      "name": "Village H",
+      "population": 1100,
+      "vulnerability": 0.59,
+      "latitude": 20.105,
+      "longitude": 73.502
+    },
+    {
+      "id": "V009",
+      "name": "Village I",
+      "population": 720,
+      "vulnerability": 0.76,
+      "latitude": 20.151,
+      "longitude": 73.444
+    },
+    {
+      "id": "V010",
+      "name": "Village J",
+      "population": 1300,
+      "vulnerability": 0.51,
+      "latitude": 20.183,
+      "longitude": 73.398
+    }
+  ],
+  "hazards": [
+    {
+      "id": "H001",
+      "type": "flood",
+      "intensity": 0.78,
+      "probability": 0.62,
+      "affected_communities": ["V001", "V002", "V004", "V006", "V009"]
+    },
+    {
+      "id": "H002",
+      "type": "landslide",
+      "intensity": 0.65,
+      "probability": 0.41,
+      "affected_communities": ["V003", "V005", "V007"]
+    },
+    {
+      "id": "H003",
+      "type": "cyclone",
+      "intensity": 0.55,
+      "probability": 0.35,
+      "affected_communities": ["V001", "V002", "V003", "V004", "V005", "V006", "V007", "V008", "V009", "V010"]
+    },
+    {
+      "id": "H004",
+      "type": "heatwave",
+      "intensity": 0.72,
+      "probability": 0.85,
+      "affected_communities": ["V001", "V002", "V003", "V004", "V005", "V006", "V007", "V008", "V009", "V010"]
+    }
+  ],
+  "infrastructure": [
+    {
+      "id": "R012",
+      "name": "Road 12",
+      "type": "road",
+      "failure_probability": 0.38,
+      "serves": ["V001", "V002", "V004", "V006", "V009"]
+    },
+    {
+      "id": "R014",
+      "name": "Road 14",
+      "type": "road",
+      "failure_probability": 0.25,
+      "serves": ["V003", "V005", "V007", "V010"]
+    },
+    {
+      "id": "B001",
+      "name": "Bridge Alpha",
+      "type": "bridge",
+      "failure_probability": 0.42,
+      "serves": ["V001", "V002", "V009"]
+    },
+    {
+      "id": "B002",
+      "name": "Bridge Beta",
+      "type": "bridge",
+      "failure_probability": 0.31,
+      "serves": ["V003", "V005", "V007"]
+    },
+    {
+      "id": "P003",
+      "name": "Pump 3",
+      "type": "pump",
+      "failure_probability": 0.28,
+      "serves": ["V001", "V002", "V004", "V006", "V009"]
+    },
+    {
+      "id": "P004",
+      "name": "Pump 4",
+      "type": "pump",
+      "failure_probability": 0.22,
+      "serves": ["V003", "V005", "V007", "V010"]
+    },
+    {
+      "id": "P005",
+      "name": "Pump 5",
+      "type": "pump",
+      "failure_probability": 0.35,
+      "serves": ["V008"]
+    },
+    {
+      "id": "H001",
+      "name": "Shivapur District Hospital",
+      "type": "hospital",
+      "failure_probability": 0.15,
+      "serves": ["V001", "V002", "V003", "V004", "V005", "V006", "V007", "V008", "V009", "V010"]
+    },
+    {
+      "id": "H002",
+      "name": "Community Health Center North",
+      "type": "hospital",
+      "failure_probability": 0.18,
+      "serves": ["V003", "V005", "V007", "V008", "V010"]
+    },
+    {
+      "id": "S001",
+      "name": "Primary School Central",
+      "type": "school",
+      "failure_probability": 0.12,
+      "serves": ["V001", "V002", "V004", "V006", "V009"]
+    },
+    {
+      "id": "S002",
+      "name": "Primary School East",
+      "type": "school",
+      "failure_probability": 0.14,
+      "serves": ["V003", "V005", "V007", "V010"]
+    },
+    {
+      "id": "S003",
+      "name": "Secondary School North",
+      "type": "school",
+      "failure_probability": 0.16,
+      "serves": ["V008"]
+    },
+    {
+      "id": "PS01",
+      "name": "Power Substation 1",
+      "type": "power_substation",
+      "failure_probability": 0.20,
+      "serves": ["V001", "V002", "V003", "V004", "V005", "V006", "V009"]
+    },
+    {
+      "id": "PS02",
+      "name": "Power Substation 2",
+      "type": "power_substation",
+      "failure_probability": 0.23,
+      "serves": ["V007", "V008", "V010"]
+    },
+    {
+      "id": "WS01",
+      "name": "Water Supply Main",
+      "type": "water_supply",
+      "failure_probability": 0.30,
+      "serves": ["V001", "V002", "V003", "V004", "V005", "V006", "V007", "V008", "V009", "V010"]
+    }
+  ],
+  "dependencies": [
+    {
+      "source": "H001",
+      "target": "R012",
+      "weight": 0.85
+    },
+    {
+      "source": "R012",
+      "target": "P003",
+      "weight": 0.78
+    },
+    {
+      "source": "R012",
+      "target": "B001",
+      "weight": 0.92
+    },
+    {
+      "source": "P003",
+      "target": "V001",
+      "weight": 0.88
+    },
+    {
+      "source": "P003",
+      "target": "V002",
+      "weight": 0.82
+    },
+    {
+      "source": "P003",
+      "target": "V004",
+      "weight": 0.79
+    },
+    {
+      "source": "B001",
+      "target": "R012",
+      "weight": 0.95
+    },
+    {
+      "source": "H001",
+      "target": "R014",
+      "weight": 0.72
+    },
+    {
+      "source": "R014",
+      "target": "P004",
+      "weight": 0.81
+    },
+    {
+      "source": "R014",
+      "target": "B002",
+      "weight": 0.88
+    },
+    {
+      "source": "P004",
+      "target": "V003",
+      "weight": 0.85
+    },
+    {
+      "source": "P004",
+      "target": "V005",
+      "weight": 0.78
+    },
+    {
+      "source": "P005",
+      "target": "V008",
+      "weight": 0.90
+    },
+    {
+      "source": "PS01",
+      "target": "P003",
+      "weight": 0.85
+    },
+    {
+      "source": "PS01",
+      "target": "P004",
+      "weight": 0.80
+    },
+    {
+      "source": "PS01",
+      "target": "H001",
+      "weight": 0.90
+    },
+    {
+      "source": "PS01",
+      "target": "S001",
+      "weight": 0.75
+    },
+    {
+      "source": "PS02",
+      "target": "P005",
+      "weight": 0.88
+    },
+    {
+      "source": "PS02",
+      "target": "H002",
+      "weight": 0.85
+    },
+    {
+      "source": "PS02",
+      "target": "S002",
+      "weight": 0.78
+    },
+    {
+      "source": "WS01",
+      "target": "P003",
+      "weight": 0.92
+    },
+    {
+      "source": "WS01",
+      "target": "P004",
+      "weight": 0.90
+    },
+    {
+      "source": "WS01",
+      "target": "P005",
+      "weight": 0.95
+    }
+  ],
+  "relocation_sites": [
+    {
+      "id": "RS01",
+      "name": "Site A — Riverside Camp",
+      "capacity": 1800,
+      "distance_km": 8.5,
+      "hazard_score": 0.72,
+      "livelihood_score": 0.55,
+      "infrastructure_score": 0.48,
+      "school_access": 0.40,
+      "health_access": 0.45
+    },
+    {
+      "id": "RS02",
+      "name": "Site B — Upland Settlement",
+      "capacity": 3500,
+      "distance_km": 22.0,
+      "hazard_score": 0.18,
+      "livelihood_score": 0.82,
+      "infrastructure_score": 0.88,
+      "school_access": 0.90,
+      "health_access": 0.85
+    },
+    {
+      "id": "RS03",
+      "name": "Site C — Mid-Valley Zone",
+      "capacity": 2200,
+      "distance_km": 15.5,
+      "hazard_score": 0.25,
+      "livelihood_score": 0.65,
+      "infrastructure_score": 0.70,
+      "school_access": 0.72,
+      "health_access": 0.68
+    },
+    {
+      "id": "RS04",
+      "name": "Site D — Plateau Refuge",
+      "capacity": 1500,
+      "distance_km": 35.0,
+      "hazard_score": 0.12,
+      "livelihood_score": 0.48,
+      "infrastructure_score": 0.55,
+      "school_access": 0.35,
+      "health_access": 0.40
+    }
+  ]
+}

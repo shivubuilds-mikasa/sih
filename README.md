@@ -17,9 +17,14 @@ At its core, SHARMI will enable:
 
 ## Current Status
 
-**Phase 0 — Project Foundation**
+**Phase 1 — Demo Data & Domain Models (Complete)**
 
-This repository is being built incrementally. We are currently laying the groundwork: project structure, backend scaffolding, configuration, and testing infrastructure.
+This repository is being built incrementally. Phase 0 established the project foundation. Phase 1 introduces:
+
+- **Domain models** — Community, Hazard, InfrastructureNode, Dependency, RelocationSite with Pydantic validation
+- **Synthetic Shivapur district dataset** — 10 communities, 15 infrastructure nodes, 4 hazards, 23 dependencies, 4 relocation sites
+- **Data loading service** — Validates and serves demo data from JSON
+- **Read-only API endpoints** — `/demo/communities`, `/demo/hazards`, `/demo/infrastructure`, `/demo/dependencies`, `/demo/relocation/sites`
 
 Future phases will introduce the risk engine, cascade simulation, relocation optimizer, and more. See [docs/development-phases.md](docs/development-phases.md) for the full roadmap.
 
@@ -69,10 +74,17 @@ The backend will be available at `http://127.0.0.1:8000`.
 
 ```
 sharmi/
-├── backend/          # FastAPI backend application
-├── frontend/         # Future frontend dashboard
-├── data/             # Future data assets and datasets
-├── docs/             # Architecture and development documentation
+├── backend/           # FastAPI backend application
+│   ├── app/
+│   │   ├── api/       # API endpoints (health, demo)
+│   │   ├── models/    # Domain models (Phase 1)
+│   │   ├── schemas/   # Pydantic schemas (future)
+│   │   └── services/  # Business logic (data_loader)
+│   ├── tests/         # Test suite
+│   └── requirements.txt
+├── frontend/          # Future frontend dashboard
+├── data/              # Demo datasets (Shivapur district)
+├── docs/              # Architecture and development documentation
 ├── .gitignore
 ├── LICENSE
 └── README.md

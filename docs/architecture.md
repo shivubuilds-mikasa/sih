@@ -10,7 +10,20 @@ SHARMI is designed as a modular, service-oriented decision-support system for di
 
 The HTTP interface for the system. Exposes REST endpoints for data ingestion, analysis requests, officer decisions, and audit queries.
 
-**Status:** Phase 0 foundation in place.
+**Status:** Phase 0 foundation in place. Phase 1 adds `/demo/*` read endpoints.
+
+### Domain Models (Phase 1)
+
+Core data entities that form the foundation for all engines:
+
+**Community** — Residential populations with vulnerability scores and geographic coordinates.
+**Hazard** — Hazard events (flood, landslide, cyclone, heatwave) with intensity, probability, and affected communities.
+**InfrastructureNode** — Roads, bridges, pumps, hospitals, schools, power substations, water supply with failure probabilities and service areas.
+**Dependency** — Generic weighted relationships between infrastructure nodes (and to communities) forming the cascade graph.
+**RelocationSite** — Candidate sites with capacity, distance, and normalized scores for hazard, livelihood, infrastructure, school/health access.
+**District** — Metadata container for the synthetic Shivapur district.
+
+These models are defined in `backend/app/models/domain.py` and validated against `data/demo_data.json`.
 
 ### Risk Engine
 
@@ -91,6 +104,29 @@ Audit Log
 ```
 
 Each stage feeds the next. The system is designed so components can be developed and tested independently before integration.
+
+## Domain Model Relationships
+
+```
+Community
+  ↑
+  |  serves / affected_by
+  |
+InfrastructureNode ←→ Dependency ←→ InfrastructureNode
+  ↑
+  |  depends_on / powers
+  |
+Hazard
+
+Affected Community
+  ↓
+Candidate Relocation Sites
+```
+
+- **Communities** are served by **InfrastructureNodes** and affected by **Hazards**
+- **InfrastructureNodes** depend on each other via **Dependencies** (directed, weighted)
+- **Hazards** trigger cascades through the dependency graph
+- **RelocationSites** are candidate destinations for affected communities
 
 ## Design Principles
 
