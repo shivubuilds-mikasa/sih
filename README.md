@@ -6,6 +6,7 @@
 
 ## What is SHARMI?
 
+
 SHARMI is a disaster-management decision-support system designed to address the critical problem of **Hazard-based Red Zone Identification & Relocation Planning**.
 
 At its core, SHARMI will enable:
