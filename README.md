@@ -12,6 +12,7 @@ At its core, SHARMI will enable:
 
 - Identifying areas at risk from cascading infrastructure failures
 - Simulating how one hazard event triggers downstream impacts
+- 
 - Recommending actionable steps before disaster strikes
 - Optimizing safe, sustainable relocation plans for affected populations
 
